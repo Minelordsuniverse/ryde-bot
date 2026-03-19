@@ -20,7 +20,7 @@ module.exports = {
     const wsHeartbeat = client.ws.ping;
 
     await interaction.editReply(
-      `🏓 Pong!\n> Roundtrip: **${roundtrip}ms** | WebSocket: **${wsHeartbeat}ms**`
+      `Pong!\n> Roundtrip: **${roundtrip}ms** | WebSocket: **${wsHeartbeat}ms**`
     );
   },
 };
