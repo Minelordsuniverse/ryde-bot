@@ -67,4 +67,4 @@ module.exports = {
 };
 ```
 
-No further registration needed — the event handler picks it up automatically.
+Note: event handler picks up registration automatically.
