@@ -31,7 +31,7 @@ module.exports = {
     userWarnings.push(entry);
 
     await target.user
-      .send(`⚠️ You received a warning in **${interaction.guild.name}**.\n> **Reason:** ${reason}\n> Total warnings: **${userWarnings.length}**`)
+      .send(`You received a warning in **${interaction.guild.name}**.\n> **Reason:** ${reason}\n> Total warnings: **${userWarnings.length}**`)
       .catch(() => null);
 
     const embed = new EmbedBuilder()
