@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Collection } = require("discord.js");
+const { Client, GatewayIntentBits, Collection, Partials } = require("discord.js");
 const { token } = require("../config/config");
 const { loadCommands } = require("./handlers/commandHandler");
 const { loadEvents } = require("./handlers/eventHandler");
@@ -10,10 +10,14 @@ const client = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
     GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessageReactions, // required for reaction roles & starboard
   ],
+  // Partials allow the bot to receive reaction events on messages
+  // that weren't cached when the bot started (e.g. older messages)
+  partials: [Partials.Message, Partials.Channel, Partials.Reaction],
 });
 
-// Attach commands collection to client for easy access across handlers
+// Attach a commands Collection to the client for easy access across handlers
 client.commands = new Collection();
 
 // Load Handlers
